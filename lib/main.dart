@@ -1,6 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:http/http.dart';
+
+import 'data/core/api_client.dart';
+import 'data/repository/payment_repository.dart';
 
 void main() {
+  // final ApiClient _client = ApiClient(Client());
+  // PaymentRepository paymentRepository = new PaymentRepository(_client);
+  // print("----testing api result--->>");
+  // print(await paymentRepository.getDuePayment());
+  // print(await paymentRepository.getCollectedPayment());
+
   runApp(MyApp());
 }
 
