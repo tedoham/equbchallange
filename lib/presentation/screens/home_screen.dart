@@ -17,6 +17,14 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  bool _isVisible = true;
+
+  void showChart() {
+    setState(() {
+      _isVisible = !_isVisible;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,8 +46,15 @@ class _HomeScreenState extends State<HomeScreen> {
                   const SizedBox(height: 70),
                   topHeader(),
                   lowerHeader(),
-                  const SizedBox(height: 70),
-                  chartView(),
+                  Visibility(
+                    visible: _isVisible,
+                    child: Column(
+                      children: [
+                        const SizedBox(height: 70),
+                        chartView(),
+                      ],
+                    ),
+                  ),
                   const SizedBox(height: 70),
                   const Padding(
                     padding: EdgeInsets.fromLTRB(20.0, 0, 0, 0),
@@ -134,10 +149,13 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
           ),
-          const Icon(
-            Icons.arrow_drop_up,
-            color: kProfileColor,
-            size: 28.0,
+          GestureDetector(
+            child: const Icon(
+              Icons.arrow_drop_up,
+              color: kProfileColor,
+              size: 28.0,
+            ),
+            onTap: showChart,
           ),
         ],
       ),
