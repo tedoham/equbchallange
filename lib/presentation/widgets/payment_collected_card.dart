@@ -23,7 +23,7 @@ class PaymentCollectedCard extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  CircleAvatar(
+                  const CircleAvatar(
                     radius: 30,
                     backgroundColor: kGreenColor,
                     child: CircleAvatar(
@@ -38,13 +38,13 @@ class PaymentCollectedCard extends StatelessWidget {
                   ),
                   Column(
                     children: [
-                      Text(
+                      const Text(
                         "Title",
                         style: TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 16),
                       ),
                       Row(
-                        children: [
+                        children: const [
                           Icon(
                             Icons.monetization_on,
                             color: Colors.grey,
@@ -67,7 +67,7 @@ class PaymentCollectedCard extends StatelessWidget {
                   Column(
                     children: [
                       Row(
-                        children: [
+                        children: const [
                           Icon(
                             Icons.monetization_on,
                             color: Colors.grey,
@@ -80,7 +80,7 @@ class PaymentCollectedCard extends StatelessWidget {
                         ],
                       ),
                       Row(
-                        children: [
+                        children: const [
                           Icon(
                             Icons.monetization_on,
                             color: Colors.grey,
@@ -93,7 +93,7 @@ class PaymentCollectedCard extends StatelessWidget {
                         ],
                       ),
                       Row(
-                        children: [
+                        children: const [
                           Icon(
                             Icons.monetization_on,
                             color: Colors.grey,
@@ -107,7 +107,7 @@ class PaymentCollectedCard extends StatelessWidget {
                       ),
                     ],
                   ),
-                  Icon(
+                  const Icon(
                     Icons.bookmark_border,
                     color: Colors.grey,
                     size: 24.0,

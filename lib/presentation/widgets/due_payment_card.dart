@@ -16,16 +16,16 @@ class DuePaymentCard extends StatelessWidget {
           padding: const EdgeInsets.all(20.0),
           child: Column(
             children: [
-              BankProfileCircular(),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
+              const BankProfileCircular(),
+              const Padding(
+                padding: EdgeInsets.all(8.0),
                 child: Text(
                   "Title",
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
                 ),
               ),
               Row(
-                children: [
+                children: const [
                   Icon(
                     Icons.monetization_on,
                     color: Colors.red,
@@ -44,22 +44,22 @@ class DuePaymentCard extends StatelessWidget {
                     color: Colors.grey[500],
                     size: 15,
                   ),
-                  Text("3 Days left"),
+                  const Text("3 Days left"),
                 ],
               ),
               OutlinedButton(
                 style: OutlinedButton.styleFrom(
                   primary: Colors.red,
-                  side: BorderSide(color: Colors.red, width: 1),
+                  side: const BorderSide(color: Colors.red, width: 1),
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(100)),
                 ),
                 onPressed: () {
                   print('Received click');
                 },
-                child: Padding(
-                  padding: const EdgeInsets.fromLTRB(16.0, 0, 16.0, 0),
-                  child: const Text('Pay'),
+                child: const Padding(
+                  padding: EdgeInsets.fromLTRB(16.0, 0, 16.0, 0),
+                  child: Text('Pay'),
                 ),
               ),
             ],
