@@ -1,8 +1,11 @@
+import 'package:equbchallange/data/model/due_payment.dart';
 import 'package:equbchallange/presentation/widgets/bank_profile_circular.dart';
 import 'package:flutter/material.dart';
 
 class DuePaymentCard extends StatelessWidget {
-  const DuePaymentCard({Key? key}) : super(key: key);
+  final DuePayment data;
+
+  DuePaymentCard({Key? key, required this.data}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -17,10 +20,10 @@ class DuePaymentCard extends StatelessWidget {
           child: Column(
             children: [
               const BankProfileCircular(),
-              const Padding(
+              Padding(
                 padding: EdgeInsets.all(8.0),
                 child: Text(
-                  "Title",
+                  data.name,
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
                 ),
               ),

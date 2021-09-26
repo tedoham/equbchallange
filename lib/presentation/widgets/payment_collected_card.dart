@@ -1,9 +1,12 @@
+import 'package:equbchallange/data/model/collected_money.dart';
 import 'package:equbchallange/presentation/constants.dart';
 import 'package:equbchallange/presentation/widgets/bank_profile_circular.dart';
 import 'package:flutter/material.dart';
 
 class PaymentCollectedCard extends StatelessWidget {
-  const PaymentCollectedCard({Key? key}) : super(key: key);
+  final CollectedMoney data;
+
+  const PaymentCollectedCard({Key? key, required this.data}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +17,7 @@ class PaymentCollectedCard extends StatelessWidget {
       width: MediaQuery.of(context).size.width / 2,
       decoration: BoxDecoration(
         border: Border.all(color: Colors.grey),
-        borderRadius: BorderRadius.all(Radius.circular(20.0)),
+        borderRadius: const BorderRadius.all(Radius.circular(20.0)),
       ),
       child: Padding(
         padding: const EdgeInsets.fromLTRB(8.0, 8.0, 8.0, 0),
