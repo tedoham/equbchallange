@@ -28,6 +28,10 @@ class PaymentRepository extends PaymentRemoteDataSource {
 
     List<DuePayment> duePayments = duePaymentFromJson(response);
 
+    duePayments[0].name = "Dashen Bank";
+    duePayments[1].name = "Abyssinia Bank";
+    duePayments[2].name = "Enat Bank";
+
     return duePayments;
   }
 }

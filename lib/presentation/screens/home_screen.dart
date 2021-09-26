@@ -137,11 +137,12 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: provider.duePayments
-                              .map((e) => const DuePaymentCard())
-                              .toList()),
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: provider.duePayments
+                            .map((data) => DuePaymentCard(data: data))
+                            .toList(),
+                      ),
                     ),
                   ),
                   Row(
@@ -168,7 +169,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         crossAxisSpacing: 10.0,
                         mainAxisSpacing: 10.0,
                         children: provider.collectedMoney
-                            .map((e) => const PaymentCollectedCard())
+                            .map((data) => PaymentCollectedCard(data: data))
                             .toList(),
                       ),
                     ),
