@@ -1,6 +1,5 @@
 import 'package:equbchallange/data/model/collected_money.dart';
 import 'package:equbchallange/presentation/constants.dart';
-import 'package:equbchallange/presentation/widgets/bank_profile_circular.dart';
 import 'package:flutter/material.dart';
 
 class PaymentCollectedCard extends StatelessWidget {
@@ -10,8 +9,9 @@ class PaymentCollectedCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Color color = Colors.grey;
-    String name = "Bank Name";
+    var period = "Annualy";
+    if (data.frequency % 2 == 0) period = "Weekly";
+    if (data.frequency % 3 == 0) period = "Monthly";
 
     return Container(
       width: MediaQuery.of(context).size.width / 2,
@@ -39,83 +39,109 @@ class PaymentCollectedCard extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Column(
-                    children: [
-                      const Text(
-                        "Title",
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 16),
-                      ),
-                      Row(
-                        children: const [
-                          Icon(
-                            Icons.monetization_on,
-                            color: Colors.grey,
-                            size: 15,
-                          ),
-                          Text(
-                            "ETB 2,000",
-                            style: TextStyle(color: Colors.grey),
-                          ),
-                        ],
-                      ),
-                    ],
+                  Padding(
+                    padding: const EdgeInsets.all(4.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text(
+                          "Title",
+                          textAlign: TextAlign.start,
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 16),
+                        ),
+                        Row(
+                          children: [
+                            const Icon(
+                              Icons.watch_later,
+                              color: Colors.grey,
+                              size: 15,
+                            ),
+                            const SizedBox(width: 5),
+                            Text(
+                              period,
+                              style: const TextStyle(color: Colors.grey),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               ),
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Column(
-                    children: [
-                      Row(
-                        children: const [
-                          Icon(
-                            Icons.monetization_on,
-                            color: Colors.grey,
-                            size: 15,
-                          ),
-                          Text(
-                            "ETB 2,000",
-                            style: TextStyle(color: Colors.grey),
-                          ),
-                        ],
+              Padding(
+                padding: const EdgeInsets.fromLTRB(0, 8.0, 4, 0),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          children: [
+                            const Icon(
+                              Icons.history,
+                              color: Colors.grey,
+                              size: 15,
+                            ),
+                            const SizedBox(width: 5),
+                            Text(
+                              '${data.frequency.toString()} Cycles',
+                              style: const TextStyle(color: Colors.grey),
+                            ),
+                          ],
+                        ),
+                        Row(
+                          children: [
+                            const Icon(
+                              Icons.monetization_on,
+                              color: Colors.grey,
+                              size: 15,
+                            ),
+                            const SizedBox(width: 5),
+                            Text(
+                              'ETB ${data.amount.toString()}',
+                              style: const TextStyle(color: Colors.grey),
+                            ),
+                          ],
+                        ),
+                        Row(
+                          children: [
+                            const Icon(
+                              Icons.people,
+                              color: Colors.grey,
+                              size: 15,
+                            ),
+                            const SizedBox(width: 5),
+                            Text(
+                              '${data.membersCount.toString()} Memebers',
+                              style: const TextStyle(color: Colors.grey),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                    GestureDetector(
+                      child: const Icon(
+                        Icons.bookmark_border,
+                        color: Colors.grey,
+                        size: 24.0,
                       ),
-                      Row(
-                        children: const [
-                          Icon(
-                            Icons.monetization_on,
-                            color: Colors.grey,
-                            size: 15,
+                      onTap: () {
+                        final snackBar = SnackBar(
+                          content: Text('Bookmarked ${data.amount} payment'),
+                          backgroundColor: (Colors.black87),
+                          action: SnackBarAction(
+                            label: 'dismiss',
+                            onPressed: () {},
                           ),
-                          Text(
-                            "ETB 2,000",
-                            style: TextStyle(color: Colors.grey),
-                          ),
-                        ],
-                      ),
-                      Row(
-                        children: const [
-                          Icon(
-                            Icons.monetization_on,
-                            color: Colors.grey,
-                            size: 15,
-                          ),
-                          Text(
-                            "ETB 2,000",
-                            style: TextStyle(color: Colors.grey),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                  const Icon(
-                    Icons.bookmark_border,
-                    color: Colors.grey,
-                    size: 24.0,
-                  ),
-                ],
+                        );
+                        ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                      },
+                    ),
+                  ],
+                ),
               ),
             ],
           ),

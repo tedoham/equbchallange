@@ -33,102 +33,23 @@ class _HomeScreenState extends State<HomeScreen> {
             return SingleChildScrollView(
               scrollDirection: Axis.vertical,
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const SizedBox(height: 70),
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(32.0, 0, 32.0, 0),
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: const [
-                        CircleAvatar(backgroundColor: kProfileColor),
-                        Icon(
-                          Icons.bookmark_border,
-                          color: Colors.grey,
-                          size: 24.0,
-                        )
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(24.0, 32, 32.0, 0),
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        SizedBox(
-                          width: 250,
-                          child: RichText(
-                            maxLines: 14,
-                            textAlign: TextAlign.start,
-                            overflow: TextOverflow.clip,
-                            softWrap: true,
-                            text: const TextSpan(
-                              text: 'Hi, ',
-                              style: TextStyle(
-                                  color: Colors.black54, fontSize: 18),
-                              children: <TextSpan>[
-                                TextSpan(
-                                    text: 'Alem',
-                                    style: TextStyle(
-                                        decoration: TextDecoration.underline)),
-                                TextSpan(text: ' have'),
-                                TextSpan(
-                                    text: ' ETB 40,000',
-                                    style: TextStyle(color: kGreenColor)),
-                                TextSpan(text: ' unpaid debt.'),
-                              ],
-                            ),
-                          ),
-                        ),
-                        const Icon(
-                          Icons.arrow_drop_up,
-                          color: kProfileColor,
-                          size: 28.0,
-                        ),
-                      ],
-                    ),
-                  ),
+                  topHeader(),
+                  lowerHeader(),
                   const SizedBox(height: 70),
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(12, 0, 8, 0),
-                    child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Expanded(
-                            flex: 4,
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: [
-                                ListBankName(color: Colors.green, name: "Cbe"),
-                                ListBankName(
-                                    color: Colors.yellow, name: "Awash"),
-                                ListBankName(color: Colors.blue, name: "Coop"),
-                                ListBankName(
-                                    color: Colors.blue, name: "Birhan"),
-                                ListBankName(
-                                    color: Colors.blue, name: "Dashen"),
-                              ],
-                            ),
-                          ),
-                          Expanded(
-                            flex: 7,
-                            child: Padding(
-                              padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-                              child: BankChartInfo(),
-                            ),
-                          )
-                        ]),
-                  ),
+                  chartView(),
                   const SizedBox(height: 70),
-                  const Text(
-                    "Due Payments",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 22,
+                  const Padding(
+                    padding: EdgeInsets.fromLTRB(20.0, 0, 0, 0),
+                    child: Text(
+                      "Due Payments",
+                      textAlign: TextAlign.start,
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 22,
+                      ),
                     ),
                   ),
                   const SizedBox(height: 5),
@@ -180,6 +101,96 @@ class _HomeScreenState extends State<HomeScreen> {
           },
         ),
       ),
+    );
+  }
+
+  Widget lowerHeader() {
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(24.0, 32, 32.0, 0),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          SizedBox(
+            width: 250,
+            child: RichText(
+              maxLines: 14,
+              textAlign: TextAlign.start,
+              overflow: TextOverflow.clip,
+              softWrap: true,
+              text: const TextSpan(
+                text: 'Hi, ',
+                style: TextStyle(color: Colors.black54, fontSize: 18),
+                children: <TextSpan>[
+                  TextSpan(
+                      text: 'Alem',
+                      style: TextStyle(decoration: TextDecoration.underline)),
+                  TextSpan(text: ' have'),
+                  TextSpan(
+                      text: ' ETB 40,000',
+                      style: TextStyle(color: kGreenColor)),
+                  TextSpan(text: ' unpaid debt.'),
+                ],
+              ),
+            ),
+          ),
+          const Icon(
+            Icons.arrow_drop_up,
+            color: kProfileColor,
+            size: 28.0,
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget topHeader() {
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(32.0, 0, 32.0, 0),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: const [
+          CircleAvatar(backgroundColor: kProfileColor),
+          Icon(
+            Icons.bookmark_border,
+            color: Colors.grey,
+            size: 24.0,
+          )
+        ],
+      ),
+    );
+  }
+
+  Widget chartView() {
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(12, 0, 8, 0),
+      child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Expanded(
+              flex: 4,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  ListBankName(color: Colors.green, name: "Cbe"),
+                  ListBankName(color: Colors.yellow, name: "Awash"),
+                  ListBankName(color: Colors.blue, name: "Coop"),
+                  ListBankName(color: Colors.blue, name: "Birhan"),
+                  ListBankName(color: Colors.blue, name: "Dashen"),
+                ],
+              ),
+            ),
+            Expanded(
+              flex: 7,
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                child: BankChartInfo(),
+              ),
+            )
+          ]),
     );
   }
 }
