@@ -9,7 +9,7 @@ class BankChartInfo extends StatefulWidget {
   // mock data
   final List<BankInfo> dataSet = [
     BankInfo(value: 0.2, label: 'Awash', color: Colors.red),
-    BankInfo(value: 0.2, label: 'Coop', color: Colors.yellow),
+    BankInfo(value: 0.2, label: 'Coop', color: Colors.orange),
     BankInfo(value: 0.2, label: 'CBE', color: Colors.blue),
     BankInfo(value: 0.2, label: 'Berhan', color: Colors.brown),
     BankInfo(value: 0.2, label: 'Zemen', color: Colors.green),

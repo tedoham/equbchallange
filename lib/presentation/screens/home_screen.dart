@@ -176,10 +176,10 @@ class _HomeScreenState extends State<HomeScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   ListBankName(color: Colors.green, name: "Cbe"),
-                  ListBankName(color: Colors.yellow, name: "Awash"),
+                  ListBankName(color: Colors.orange, name: "Awash"),
                   ListBankName(color: Colors.blue, name: "Coop"),
-                  ListBankName(color: Colors.blue, name: "Birhan"),
-                  ListBankName(color: Colors.blue, name: "Dashen"),
+                  ListBankName(color: Colors.brown, name: "Birhan"),
+                  ListBankName(color: Colors.red, name: "Dashen"),
                 ],
               ),
             ),
