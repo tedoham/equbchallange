@@ -1,9 +1,6 @@
 class ApiConstants {
   ApiConstants._();
 
-// https://610e396448beae001747ba80.mockapi.io/collectedPayments
-// https://610e396448beae001747ba80.mockapi.io/duePayments
-
   // ignore: constant_identifier_names
   static const String BASE_URL = "https://610e396448beae001747ba80.mockapi.io/";
 }

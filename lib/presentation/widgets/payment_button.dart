@@ -11,8 +11,8 @@ class PaymentButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final ButtonStyle flatButtonStyle = TextButton.styleFrom(
       primary: active == true ? Colors.white : Colors.grey,
-      minimumSize: Size(88, 36),
-      padding: EdgeInsets.symmetric(horizontal: 16.0),
+      minimumSize: const Size(88, 36),
+      padding: const EdgeInsets.symmetric(horizontal: 16.0),
       side: BorderSide(
         color: active == true ? Colors.transparent : Colors.grey,
         width: 1,

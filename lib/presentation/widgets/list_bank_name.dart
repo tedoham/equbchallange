@@ -16,7 +16,7 @@ class ListBankName extends StatelessWidget {
           child: Container(
             width: 10.0,
             height: 10.0,
-            decoration: new BoxDecoration(
+            decoration: BoxDecoration(
               color: color,
               shape: BoxShape.circle,
             ),

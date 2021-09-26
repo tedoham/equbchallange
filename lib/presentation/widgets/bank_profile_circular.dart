@@ -11,7 +11,7 @@ class BankProfileCircular extends StatelessWidget {
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(100),
           border: Border.all(width: 1, color: Colors.red)),
-      child: Icon(
+      child: const Icon(
         Icons.cancel,
         color: Colors.red,
       ),
