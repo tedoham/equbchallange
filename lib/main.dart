@@ -1,6 +1,7 @@
+import 'package:equbchallange/presentation/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+void main() async {
   runApp(MyApp());
 }
 
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Container(),
+      home: const HomeScreen(),
     );
   }
 }
